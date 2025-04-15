@@ -1,30 +1,34 @@
 
 import { Link } from "react-router-dom";
+import links from "../links.json";
+import ThemeControl from "./ThemeControl";
 
 function NavBar() {
     return (
-        // <Flex id="navbar" as="div" direction="row-reverse" align="center" classNameName="bg-gray-950 top-0 text-right w-screen gap-5 p-3">
-        //     <h3 classNameName="text-white font-bold text-[1.7em]">comfy Blog</h3>
-        //     <Button color="gray" variant="classNameic">
-        //         Edit profile
-        //     </Button>
-        //     <Button color="orange" variant="solid" highContrast radius="full" classNameName="text-center cursor-pointer">
-        //         <Link to="/" classNameName=" hover:font-bold p-1.5 w-20">Home</Link>
-        //     </Button>
-        //     <Button color="crimson" variant="solid" radius="full" highContrast>
-        //         <Link to="/posts" classNameName="hover:font-bold p-1.5 rounded-lg w-20 text-center cursor-pointer">Posts</Link>
-        //     </Button>
-    /* <div id="navbar" classNameName="font-sans bg-gray-950 h-16 w-screen top-0 flex flex-row-reverse items-center p-3">
-        </div> */
-    <div className="navbar bg-neutral text-neutral-content w-screen gap-3">
-        <div className="navbar-start">
-            <h1>Blog | acskii</h1>
+        <div id="navbar" className="navbar sticky top-0 light:bg-accent bg-neutral flex flex-row gap-2">
+            <div id="navbar-home" className="navbar-start">
+                <Link to="/">
+                    <button className="btn btn-ghost text-xl font-bold p-2">Blog</button>
+                </Link>
+                <a href={links.github}>
+                    <span className="text-sm sm:text-base">| acskii</span>
+                </a>
+            </div>
+            <div id="navbar-tabs" className="navbar-center flex flex-row gap-3">
+                <Link to="/home">
+                    <button className="btn btn-soft btn-secondary md:text-lg sm:text-sm font-bold">Home</button>
+                </Link>
+                <Link to="/posts">
+                    <button className="btn btn-soft btn-primary md:text-lg sm:text-sm font-bold">Posts</button>
+                </Link>
+                <Link to="/about">
+                    <button className="btn btn-soft btn-secondary md:text-lg sm:text-sm font-bold">About</button>
+                </Link>
+            </div>
+            <div className="navbar-end">
+                <ThemeControl />
+            </div>
         </div>
-        <div className="navbar-center flex gap-3">
-            <button className="btn btn-ghost text-xl"><Link to="/home" >Home</Link></button>
-            <button className="btn btn-ghost text-xl"><Link to="/posts" >Posts</Link></button>
-        </div>
-    </div>
     );
 }
 
