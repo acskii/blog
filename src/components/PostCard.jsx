@@ -1,29 +1,31 @@
 import {Link} from 'react-router-dom';
+import TagList from './TagList';
 
 function PostCard({post}) {
     const postLink = `/posts/${post.id}`;
 
     return (
-    <div className="w-full flex flex-col bg-white border border-gray-200 shadow-2xs rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
-        <div className="p-4 md:p-5">
-            <h3 className="text-lg font-bold text-gray-800 dark:text-white">
-            {post.title}
-            </h3>
-            <p className="mt-2 text-gray-500 dark:text-neutral-400">
-            Written by {post.author}
-            </p>
-            <p className="font-semibold">
-                <Link to={postLink} className="text-gray-950 underline decoration-sky-400 underline-offset-3 hover:decoration-2 dark:text-white">Read post &rarr;</Link>
-            </p>
-            <div className="flex flex-row gap-2">
-                {post.tags.map(tag => {
-                    return <div class="badge badge-outline badge-accent">{tag}</div>
-                })}
+    <div className="w-full flex flex-col bg-base-200 border border-zinc-200 shadow-2xs rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
+        <div className="p-4 md:p-5 text-base-content flex flex-row gap-2 justify-between">
+            <div class="flex flex-col">
+                <h3 className="text-lg font-bold">
+                {post.title}
+                </h3>
+                <p>
+                Written by {post.author}
+                </p>
+                <p className="font-semibold mt-2">
+                    <Link to={postLink} className="underline decoration-sky-400 underline-offset-3 hover:decoration-2 dark:text-white">Read post &rarr;</Link>
+                </p>
             </div>
+            <TagList tags={post.tags} />
         </div>
-        <div className="bg-gray-100 border-t border-gray-200 rounded-b-xl py-3 px-4 md:py-4 md:px-5 dark:bg-neutral-900 dark:border-neutral-700">
-            <p className="mt-1 text-sm text-gray-500 dark:text-neutral-500">
-            Uploaded on {post.date}
+        <div className="bg-accent border-t border-zinc-200 rounded-b-xl py-3 px-4 flex flex-row justify-between">
+            <p className="text-base-content text-sm">
+                Updated on {post.date}
+            </p>
+            <p className="text-base-content text-sm">
+                Uploaded on {post.date}
             </p>
         </div>
     </div>
