@@ -5,7 +5,7 @@
 @plugin "daisyui" {
   themes: nord, business --default --prefersdark;
 }
-@custom-variant dark (&:where([data-theme=business], [data-theme=business] *));
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 @custom-variant light (&:where([data-theme=nord], [data-theme=nord] *));
 
 :root {

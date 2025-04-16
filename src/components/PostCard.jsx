@@ -20,7 +20,7 @@ function PostCard({post}) {
             </div>
             <TagList tags={post.tags} />
         </div>
-        <div className="bg-accent border-t border-zinc-200 rounded-b-xl py-3 px-4 flex flex-row justify-between">
+        <div className="bg-secondary border-t border-zinc-200 rounded-b-xl py-3 px-4 flex flex-row justify-between">
             <p className="text-base-content text-sm">
                 Updated on {post.date}
             </p>
