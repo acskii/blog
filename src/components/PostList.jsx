@@ -1,10 +1,9 @@
-import posts from '../content/posts.json';
 import PostCard from './PostCard';
 
-function PostList() {
+function PostList({posts}) {
     return (
-        <section id="post-list" className="flex flex-col gap-2 items-center justify-start mb-22">
-            {posts.length && posts.map(post => {
+        <section id="post-list" className="flex flex-col gap-5 items-center justify-start w-sm md:w-lg">
+            {posts.map(post => {
                 return <PostCard post={post}/>
             })} 
         </section>
