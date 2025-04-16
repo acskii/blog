@@ -3,10 +3,10 @@
 
 @plugin "daisyui";
 @plugin "daisyui" {
-  themes: nord, business --default --prefersdark;
+  themes: nord, dark --default;
 }
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 @custom-variant light (&:where([data-theme=nord], [data-theme=nord] *));
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
