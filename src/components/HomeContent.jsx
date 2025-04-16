@@ -1,19 +1,23 @@
+import { Link } from "react-router-dom";
+import SwappingEmoji from "./SwappingEmoji";
+
 function HomeContent() {
     return (
-    <section id="home-msg" className="flex items-center justify-center mt-30 mb-34">
-        <div className="hero bg-base-200 h-90 w-full rounded-lg">
-            <div className="hero-content text-center">
-                <div className="max-w-md">
-                    <h1 className="text-5xl font-bold">Hello there</h1>
-                    <p className="py-6">
-                            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                           quasi. In deleniti eaque aut repudiandae et a id nisi.
-                    </p>
-                    <button className="btn btn-primary">Get Started</button>
+        <div className="hero bg-base-200 h-90 w-full rounded-lg text-base-content">
+            <div class="hero-content text-center flex flex-col items-center gap-3">
+                <div class="max-w-lg text-left">
+                    <div class="flex flex-row justify-center items-center text-3xl md:text-5xl">
+                        <h1 class="font-bold">Hey there!</h1>
+                        <SwappingEmoji  on='👊' off='👋' />
+                    </div>
+                    <p class="pt-6 text-md md:text-lg">This is my stash of code crumbs, dev musings, and chaotic scribbles from the tech rabbit hole.</p>
+                    <p class="py-6 text-md md:text-lg">It's mostly for future-me… but you're totally welcome to snoop around!</p>
                 </div>
+                <Link class="btn btn-wide btn-soft btn-primary border border-zinc-500" to="/posts">
+                    <button>Check my stash!</button>
+                </Link>
             </div>
         </div>
-    </section>
     );
 }
 

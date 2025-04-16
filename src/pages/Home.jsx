@@ -1,13 +1,10 @@
-import PostCard from "../components/PostCard";
-import PostCount from "../components/PostCount";
 import HomeContent from "../components/HomeContent";
-import ContentIndent from "../components/ContentIndent";
 
 function Home() {
     return (
-        <ContentIndent>
+        <section id="home" className="flex items-center justify-center my-30">
             <HomeContent />
-        </ContentIndent>
+        </section>
     );
 }
 
