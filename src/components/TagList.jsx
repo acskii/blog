@@ -2,7 +2,7 @@ import TagBadge from "./TagBadge";
 
 function TagList({tags}) {
     return (
-    <div className="grid grid-cols-3 content-start gap-2">
+    <div className="flex flex-row justify-start items-start gap-4">
         {tags.map((tag, i) => {
             return <TagBadge text={tag} key={i}/>
         })}
