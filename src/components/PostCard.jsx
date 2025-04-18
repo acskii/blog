@@ -15,7 +15,7 @@ function PostCard({post}) {
                 Written by {post.author}
                 </p>
                 <p className="font-semibold mt-2">
-                    <Link to={postLink} className="underline decoration-sky-400 underline-offset-3 hover:decoration-2 dark:text-white">Read post &rarr;</Link>
+                    <Link to={postLink} className="underline decoration-secondary underline-offset-3 hover:decoration-2 dark:text-white">Read post &rarr;</Link>
                 </p>
             </div>
             <TagList tags={post.tags} />
