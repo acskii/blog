@@ -1,10 +1,8 @@
-import HomeContent from "../components/HomeContent";
+import HomeHero from "../components/HomeHero";
 
 function Home() {
     return (
-        <section id="home" className="flex items-center justify-center my-30">
-            <HomeContent />
-        </section>
+        <HomeHero />
     );
 }
 
