@@ -1,5 +1,5 @@
-import './App.css';
-
+import '@mantine/core/styles.css';
+import { MantineProvider } from '@mantine/core';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import NavBar from './components/NavBar';
@@ -9,7 +9,7 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <>
+    <MantineProvider defaultColorScheme='dark'>
       <NavBar />
       <main>
         <Routes>
@@ -22,7 +22,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
-    </>
+    </MantineProvider>
   );
 }
 

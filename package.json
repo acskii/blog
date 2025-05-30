@@ -18,6 +18,7 @@
     "@mantine/core": "^8.0.2",
     "@mantine/hooks": "^8.0.2",
     "@supabase/supabase-js": "^2.49.8",
+    "@tabler/icons-react": "^3.33.0",
     "@tailwindcss/vite": "^4.1.3",
     "front-matter": "^4.0.2",
     "gh-pages": "^6.3.0",
@@ -43,6 +44,9 @@
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
+    "postcss": "^8.5.4",
+    "postcss-preset-mantine": "^1.17.0",
+    "postcss-simple-vars": "^7.0.1",
     "tailwindcss": "^4.1.3",
     "vite": "^6.2.0"
   }
