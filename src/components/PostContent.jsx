@@ -5,16 +5,14 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from 'remark-gfm';
 // import rehypeSlug from 'rehype-slug';
 // import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import 'github-markdown-css';
+import './github-markdown.css';
 import './PostContent.css';
 //import MarkdownRenderer from "./MarkdownRenderer";
 
 function PostContent({content}) {
-    if (content == null) {
-        return <Navigate to="/404" replace/>;
-    } else {
+    if (content != null) {  
         return (
-        <div className="markdown-body p-4 w-full">
+        <div className="markdown-body light-body p-4 w-full">
         <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             //rehypePlugins={[rehypeSlug, [rehypeAutolinkHeadings, {'behavior': 'after'}]]}
