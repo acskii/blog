@@ -18,7 +18,9 @@ jobs:
         uses: actions/setup-node@v3
 
       - name: Install dependencies
-        uses: bahmutov/npm-install@v1
+        run: |
+          npm install
+          npm install @supabase/supabase-js --save-exact
 
       - name: Build with environment variables
         run: |
