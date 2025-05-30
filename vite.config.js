@@ -12,9 +12,4 @@ export default defineConfig({
     react()
   ],
   base: "/blog/",
-  build: {
-    rollupOptions: {
-      external: ['@supabase/supabase-js']
-    }
-  }
 })
