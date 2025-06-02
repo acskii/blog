@@ -12,7 +12,7 @@ import './PostContent.css';
 function PostContent({content}) {
     if (content != null) {  
         return (
-        <div className="markdown-body light-body p-4 w-full">
+        <div className="markdown-body p-4 w-full">
         <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             //rehypePlugins={[rehypeSlug, [rehypeAutolinkHeadings, {'behavior': 'after'}]]}
