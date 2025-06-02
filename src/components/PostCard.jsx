@@ -1,35 +1,55 @@
-import {Link} from 'react-router-dom';
-import TagList from './TagList';
+import { Link } from 'react-router-dom';
+import { Badge, Button, Card, Group, Image, Text } from '@mantine/core';
+import './PostCard.css';
 
 function PostCard({post}) {
-    const postLink = `/posts/${post.id}`;
+    const { id, title, author, created_at, updated_at, tags } = post;
+    const ca = new Intl.DateTimeFormat(["ban", "id"]).format(new Date(created_at));
+    const ua = new Intl.DateTimeFormat(["ban", "id"]).format(new Date(updated_at));
+    const postLink = `/posts/${id}`;
+    const tagList = tags.map((tag) => <Badge className="label-card" variant="light" key={tag}>{tag}</Badge>);
 
     return (
-    <div className="w-full flex flex-col bg-base-200 border border-zinc-200 shadow-2xs rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
-        <div className="p-4 md:p-5 text-base-content flex flex-row gap-2 justify-between">
-            <div class="flex flex-col">
-                <h3 className="text-lg font-bold">
-                {post.title}
-                </h3>
-                <p>
-                Written by {post.author}
-                </p>
-                <p className="font-semibold mt-2">
-                    <Link to={postLink} className="underline decoration-secondary underline-offset-3 hover:decoration-2 dark:text-white">Read post &rarr;</Link>
-                </p>
+    <Card withBorder radius="md" p="md" className="card text-wrap w-100" key={id}>
+        <Card.Section className="section-card" mt="md">
+            <Group justify="apart">
+                <Text fz="lg" fw={500}>
+                    {title}
+                </Text>
+                <Badge size="sm" variant="light" color="orange">
+                    {author}
+                </Badge>
+            </Group>
+        </Card.Section>
+        <Card.Section className="section-card" mt="md">
+            <Group gap="7" mt="5">
+               {tagList}
+            </Group>
+        </Card.Section>
+        <Group mt="xs" className="flex flex-row justify-end items-center">
+            <Link to={postLink}>
+                <Button radius="md" style={{ flex: 1 }}>
+                Show article
+                </Button>
+            </Link>
+            <div key={"created_at_date_" + id}>
+                <Text size="xs" c="dimmed">
+                    Created at
+                </Text>
+                <Text fw={500} size="sm">
+                    {ca}
+                </Text>
             </div>
-            <TagList tags={post.tags} />
-        </div>
-        <div className="bg-secondary border-t border-zinc-200 rounded-b-xl py-3 px-4 flex flex-row justify-between">
-            <p className="text-base-content text-sm">
-                Updated on {post.date}
-            </p>
-            <p className="text-base-content text-sm">
-                Uploaded on {post.date}
-            </p>
-        </div>
-    </div>
-    );
+            <div key={"updated_at_date_" + id}>
+                <Text size="xs" c="dimmed">
+                    Updated at
+                </Text>
+                <Text fw={500} size="sm">
+                    {ua}
+                </Text>
+            </div>
+        </Group>
+    </Card>);
 }
 
 export default PostCard;
