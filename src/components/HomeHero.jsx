@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
 import { Container, Group, Button, Text } from "@mantine/core";
-import SwappingEmoji from "./SwappingEmoji";
 import "./HomeHero.css";
 
 function HomeHero() {
     return (
       <Container size={700} className="inner-hero">
         <h1 className="title">
-          Hey there <SwappingEmoji  on='👊' off='👋' />
+          Hey there 👋
         </h1>
 
         <Text className="description" c="dimmed">

@@ -1,18 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&display=swap');
 @import "tailwindcss";
 
-@plugin "daisyui";
+/*@plugin "daisyui";
 @plugin "daisyui" {
   themes: nord, dark --default;
 }
-@custom-variant light (&:where([data-theme=nord], [data-theme=nord] *));
+@custom-variant light (&:where([data-theme=nord], [data-theme=nord] *)); */
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   /* background-color: #242424; */
 

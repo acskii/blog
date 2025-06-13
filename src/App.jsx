@@ -4,19 +4,20 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import NavBar from './components/NavBar';
 import Posts from './pages/Posts';
-import Page404 from './pages/404';
+import ErrorPage from './pages/Error';
 import Footer from './components/Footer';
+import About from './pages/About';
 
 function App() {
   return (
-    <MantineProvider defaultColorScheme='dark'>
+    <MantineProvider defaultColorScheme='light'>
       <NavBar />
       <main>
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/home" element={<Home/>} />
-          <Route path="/about" element={<Page404/>} />
-          <Route path="/404" element={<Page404/>} />
+          <Route path="/about" element={<About/>} />
+          <Route path="/error" element={<ErrorPage/>} />
           <Route path="/posts" element={<Posts/>} />
           <Route path="/posts/:id" element={<Posts/>} />
         </Routes>
