@@ -5,8 +5,9 @@ import supabase from "../config/supabaseClient";
 
 /* REACT */
 import { useState, useEffect, useCallback } from "react";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
+import { Container, Loader, Center } from "@mantine/core";
 
 /* COMPONENTS */
 import PostList from "../components/PostList";
@@ -21,9 +22,10 @@ function Posts() {
     const { id } = useParams();
     const query = useQuery();
     const tag = query.get('tag');
-    const [fetchError, setFetchError] = useState(null);
+    const navigate = useNavigate();
     const [posts, setPosts] = useState([]);
     const [content, setPostContent] = useState(null);
+    const [loading, setLoading] = useState(true);
  
     const getPostsTags = useCallback(async (articles) => {
         return Promise.all(
@@ -53,11 +55,12 @@ function Posts() {
             if (error || !data) {
                 setPostContent(null);
                 setPosts([]);
-                setFetchError("Couldn't load article");
+                navigate('/error', { state: { message: "Content for this article couldn't be loaded.." } });
+                return;
             }
             setPostContent(data.content);
+            setLoading(false);
             setPosts([]);
-            setFetchError(null);
         }
     }, []);
 
@@ -69,13 +72,13 @@ function Posts() {
                 
             if (articlesError || !articles) {
                 setPosts([]);
-                setFetchError("No articles with such tag.");
+                navigate('/error', { state: { message: "Unexpected error when retrieving articles.." } });
                 return;
             }
             
             const postsWithTags = await getPostsTags(articles); 
             setPosts(postsWithTags);
-            setFetchError(null);
+            setLoading(false);
         }
     }, [getPostsTags]);
 
@@ -98,9 +101,9 @@ function Posts() {
                 
                 const postsWithTags = await getPostsTags(articles); 
                 setPosts(postsWithTags);
-                setFetchError(null);
+                setLoading(false);
             } catch (error) {
-                setFetchError("Couldn't fetch posts...");
+                navigate('/error', { state: { message: "Unexpected error loading articles.." } });
                 setPosts([]);
             }
         };
@@ -112,12 +115,16 @@ function Posts() {
         //ml-36 mr-14 mt-6
         <section id="posts" className="my-10 flex flex-col items-center gap-5 p-4">
             {(!id) ? <SearchInput /> : <></>}
+            {(loading) ? <Container my="xl" size="sm">
+            <Center>
+                <Loader />
+            </Center>
+          </Container> : <></>}
             {(tag) ? <div>
                 <h2 className="text-gray-400 font-bold font-sans text-4xl mb-2">Tag: {tag}</h2>
                 <hr className="mb-5 text-gray-400"/>
             </div>
             : <></>}
-            {fetchError && <p>{fetchError}</p>}
             {(id) ? <PostContent content={content} /> : <PostList posts={posts}/>}
         </section>
     );

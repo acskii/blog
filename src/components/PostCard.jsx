@@ -10,7 +10,7 @@ function PostCard({post}) {
     const tagList = tags.map((tag) => <Badge className="label-card" variant="light" key={tag}>{tag}</Badge>);
 
     return (
-    <Card withBorder radius="md" p="md" className="card text-wrap w-100" key={id}>
+    <Card withBorder radius="md" p="md" className="card text-wrap" w="100%" key={id}>
         <Card.Section className="section-card" mt="md">
             <Group justify="apart">
                 <Text fz="lg" fw={500}>
